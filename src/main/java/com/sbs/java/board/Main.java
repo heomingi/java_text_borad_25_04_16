@@ -9,6 +9,7 @@ public class Main {
     System.out.println("==자바 텍스트 게시판==");
     System.out.println("텍스트 게시판을 시작합니다");
 
+    int lastArticleId=0;
     while (true) {
       System.out.println("명령)");
       String cmd = sc.nextLine();
@@ -30,9 +31,10 @@ public class Main {
           continue;
         }
 
-        int id = 1;
+        int id =++lastArticleId;
 
-        System.out.println("1번 게시물이 등록되었습니다.");
+
+        System.out.printf("%d번 게시물이 등록되었습니다.",id);
       }
 
       else if(cmd.equals("exit")){
