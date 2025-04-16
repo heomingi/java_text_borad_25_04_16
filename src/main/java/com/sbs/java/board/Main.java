@@ -38,7 +38,7 @@ public class Main {
         article.content = content;
 
         System.out.println("생성된 게시물 객체:"+article);
-        
+
         System.out.printf("%d번 게시물이 등록되었습니다.",id);
       }
 
@@ -65,6 +65,7 @@ public class Main {
   }
 }
 
+
 class Article{
 
   int id;
@@ -72,4 +73,10 @@ class Article{
   String subject;
 
   String content;
+
+  @Override
+  public String toString(){
+    return "{id:%d,subject:\"%s\",content:\"%s\"}".formatted(id,subject,content);
+
+  }
 }
