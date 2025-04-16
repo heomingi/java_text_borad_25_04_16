@@ -16,8 +16,19 @@ public class Main {
         System.out.println("==게시물 작성==");
         System.out.println("제목: ");
         String subject = sc.nextLine();
+
+        if(subject.trim().isEmpty()){
+          System.out.println("제목을 입력해주세요.");
+          continue;
+        }
+
         System.out.println("내용: ");
         String content = sc.nextLine();
+
+        if(content.trim().isEmpty()){
+          System.out.println("내용을 입력해주세요.");
+          continue;
+        }
 
         int id = 1;
 
