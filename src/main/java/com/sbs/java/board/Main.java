@@ -1,11 +1,16 @@
 package com.sbs.java.board;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Main {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
+
+    List<Article> articles = new ArrayList<>();
+
     int lastArticleId=0;
     Article lastArticle = null;
 
@@ -37,11 +42,35 @@ public class Main {
         Article article = new Article(id,subject,content);
         lastArticle = article;
 
+        articles.add(article);
+
         System.out.println("생성된 게시물 객체:"+article);
 
         System.out.printf("%d번 게시물이 등록되었습니다.",id);
       }
 
+      else if(cmd.equals("/user/article/list")) {
+        if (articles.isEmpty()) {
+          System.out.println("게시물이 존재하지 않습니다.");
+          continue;
+        }
+        System.out.println("==게시물 리스트==");
+        System.out.println("번호 | 제목");
+
+/*        for(int i=0; i<articles.size(); i++){
+          Article article = articles.get(i);
+
+          System.out.printf("%d | %s \n",article.id,article.subject);*/
+
+      /*  for(Article article :articles){
+          System.out.printf("%d | %s \n",article.id,article.subject);
+        }
+      }*/
+
+        articles.forEach((article)
+            -> System.out.printf("%d | %s \n", article.id, article.subject));
+
+      }
       else if(cmd.equals("/user/article/detail")){
 
         Article article=lastArticle;
